@@ -112,10 +112,10 @@ public class CreationCommande extends HttpServlet {
 		
 		/*Stockage du message et du bean dans l'objet request*/
 		request.setAttribute("commande1", commande1);
-		if (empty==false){
-			
+		
 		/*transmission de la paire d'objets request/response à notre JSP*/
-		this.getServletContext().getRequestDispatcher("/WEB-INF/viewerCommande.jsp").forward(request, response);
+		if (empty==false){
+			this.getServletContext().getRequestDispatcher("/WEB-INF/viewerCommande.jsp").forward(request, response);
 		} else {
 			this.getServletContext().getRequestDispatcher("/accueil.jsp").forward(request, response);
 		}
