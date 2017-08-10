@@ -1,13 +1,8 @@
 package com.sdzee.servlets;
 
-import java.io.IOException;  
-  
+import java.io.IOException;
+
 //import java.io.PrintWriter;
-
-
-
-
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,10 +17,24 @@ import com.sdzee.beans.Commande;
 /**
  * Servlet implementation class CreationCommande
  */
-@WebServlet("/CreationCommande")
+@WebServlet( "/CreationCommande" )
 public class CreationCommande extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+
+    public static final String CHAMP_NOM        = "lastname";
+    public static final String CHAMP_PRENOM     = "firstname";
+    public static final String CHAMP_ADRESSE    = "adress";
+    public static final String CHAMP_TELEPHONE  = "phoneNumber";
+    public static final String CHAMP_EMAIL      = "email";
+
+    public static final String ATT_MESSAGE1     = "message";
+    public static final String ATT_MESSAGE2     = "message1";
+    public static final String ATT_COMMANDE     = "commande1";
+    public static final String ATT_CLIENT       = "client1";
+    public static final String VUE_SUCCES       = "/WEB-INF/viewerCommande.jsp";
+    public static final String VUE_ERROR        = "/accueil.jsp";
+
+    private static final long  serialVersionUID = 1L;
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -34,98 +43,100 @@ public class CreationCommande extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Boolean empty=false;
-		int montantCommande;
-		int phoneNumber;
-		
-		/* Récupération des données du formulaire*/
-		String lastname = request.getParameter("lastname");
-		String firstname = request.getParameter("firstname");
-		String adress = request.getParameter("adress");
-		String phone=request.getParameter("phoneNumber");
-		
-		if (phone.isEmpty()){
-			phoneNumber = 0;
-		} else {
-			phoneNumber = Integer.parseInt(phone);
-		}
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+     *      response)
+     */
+    protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException,
+            IOException {
+        Boolean empty = false;
+        int montantCommande;
+        int phoneNumber;
 
-		String email = request.getParameter("email");
-		
-		if(lastname.isEmpty() || firstname.isEmpty() || adress.isEmpty() || phone.isEmpty() || email.isEmpty()){
-			String message="Veuillez remplir tous les champs pour le client. SVP";
-			request.setAttribute("message", message);
-			empty=true;
-		}
-				
-		/*Création du bean*/
-		Client client1 = new Client();
-		
-		/*Initialisation de ses propriétés*/
-		client1.setLastname(lastname);
-		client1.setFirstname(firstname);
-		client1.setAdress(adress);
-		client1.setPhoneNumber(phoneNumber);
-		client1.setEmail(email);
-		
-		
-		/*Stockage du message et du bean dans l'objet request*/
-		request.setAttribute("client1", client1);
-		
-		
-		/* Récupération des données du formulaire*/
-		DateTime dateCommande = new DateTime();
-		String montant=request.getParameter("montantCommande");
-		if (montant.isEmpty()){
-			montantCommande = 0;
-		} else {
-			montantCommande = Integer.parseInt(montant);
-		}
-		
-		String modedePaiementCommande = request.getParameter("modePaiementCommande");
-		String statutPaiementCommande = request.getParameter("statutPaiementCommande");
-		String modeLivraisonCommande = request.getParameter("modeLivraisonCommande");
-		String statutLivraisonCommande = request.getParameter("statutLivraisonCommande");
+        /* Récupération des données du formulaire */
+        String lastname = request.getParameter( CHAMP_NOM );
+        String firstname = request.getParameter( CHAMP_PRENOM );
+        String adress = request.getParameter( CHAMP_ADRESSE );
+        String phone = request.getParameter( CHAMP_TELEPHONE );
 
-		if(modedePaiementCommande.isEmpty() || statutPaiementCommande.isEmpty() || modeLivraisonCommande.isEmpty() || statutLivraisonCommande.isEmpty() || montant.isEmpty()){
-			String message1="Veuillez remplir tous les champs pour la commande. SVP";
-			request.setAttribute("message1", message1);
-			empty=true;
-		}
-	
-				
-		/*Création du bean*/
-		Commande commande1 = new Commande();
-		
-		/*Initialisation de ses propriétés*/
-		commande1.setDateCommande(dateCommande);
-		commande1.setMontantCommande(montantCommande);
-		commande1.setModedePaiementCommande(modedePaiementCommande);
-		commande1.setStatutPaiementCommande(statutPaiementCommande);
-		commande1.setStatutLivraisonCommande(statutLivraisonCommande);
-		commande1.setModeLivraisonCommande(modeLivraisonCommande);
-		
-		
-		/*Stockage du message et du bean dans l'objet request*/
-		request.setAttribute("commande1", commande1);
-		
-		/*transmission de la paire d'objets request/response à notre JSP*/
-		if (empty==false){
-			this.getServletContext().getRequestDispatcher("/WEB-INF/viewerCommande.jsp").forward(request, response);
-		} else {
-			this.getServletContext().getRequestDispatcher("/accueil.jsp").forward(request, response);
-		}
-	}
+        if ( phone.isEmpty() ) {
+            phoneNumber = 0;
+        } else {
+            phoneNumber = Integer.parseInt( phone );
+        }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
+        String email = request.getParameter( CHAMP_EMAIL );
+
+        if ( lastname.isEmpty() || firstname.isEmpty() || adress.isEmpty() || phone.isEmpty() || email.isEmpty() ) {
+            String message = "Veuillez remplir tous les champs pour le client. SVP";
+            request.setAttribute( ATT_MESSAGE1, message );
+            empty = true;
+        }
+
+        /* Création du bean */
+        Client client1 = new Client();
+
+        /* Initialisation de ses propriétés */
+        client1.setLastname( lastname );
+        client1.setFirstname( firstname );
+        client1.setAdress( adress );
+        client1.setPhoneNumber( phoneNumber );
+        client1.setEmail( email );
+
+        /* Stockage du message et du bean dans l'objet request */
+        request.setAttribute( ATT_CLIENT, client1 );
+
+        /* Récupération des données du formulaire */
+        DateTime dateCommande = new DateTime();
+
+        String montant = request.getParameter( "montantCommande" );
+        if ( montant.isEmpty() ) {
+            montantCommande = 0;
+        } else {
+            montantCommande = Integer.parseInt( montant );
+        }
+
+        String modedePaiementCommande = request.getParameter( "modePaiementCommande" );
+        String statutPaiementCommande = request.getParameter( "statutPaiementCommande" );
+        String modeLivraisonCommande = request.getParameter( "modeLivraisonCommande" );
+        String statutLivraisonCommande = request.getParameter( "statutLivraisonCommande" );
+
+        if ( modedePaiementCommande.isEmpty() || statutPaiementCommande.isEmpty() || modeLivraisonCommande.isEmpty()
+                || statutLivraisonCommande.isEmpty() || montant.isEmpty() ) {
+            String message1 = "Veuillez remplir tous les champs pour la commande. SVP";
+            request.setAttribute( ATT_MESSAGE2, message1 );
+            empty = true;
+        }
+
+        /* Création du bean */
+        Commande commande1 = new Commande();
+
+        /* Initialisation de ses propriétés */
+        commande1.setDateCommande( dateCommande );
+        commande1.setMontantCommande( montantCommande );
+        commande1.setModedePaiementCommande( modedePaiementCommande );
+        commande1.setStatutPaiementCommande( statutPaiementCommande );
+        commande1.setStatutLivraisonCommande( statutLivraisonCommande );
+        commande1.setModeLivraisonCommande( modeLivraisonCommande );
+
+        /* Stockage du message et du bean dans l'objet request */
+        request.setAttribute( ATT_COMMANDE, commande1 );
+
+        /* transmission de la paire d'objets request/response à notre JSP */
+        if ( empty == false ) {
+            this.getServletContext().getRequestDispatcher( VUE_SUCCES ).forward( request, response );
+        } else {
+            this.getServletContext().getRequestDispatcher( VUE_ERROR ).forward( request, response );
+        }
+    }
+
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+     *      response)
+     */
+    protected void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException,
+            IOException {
+        // TODO Auto-generated method stub
+    }
 
 }
