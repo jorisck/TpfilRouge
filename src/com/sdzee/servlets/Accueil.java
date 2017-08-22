@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet( "/Accueil" )
 public class Accueil extends HttpServlet {
-    public static final String VUE              = "/accueil.jsp";
+    public static final String VUE              = "/WEB-INF/accueil.jsp";
     private static final long  serialVersionUID = 1L;
 
     /**

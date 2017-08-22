@@ -1,4 +1,4 @@
-<%@ include file="header.jsp" %>
+<%@ include file="include/header.jsp" %>
 
  
   <!-- Résumé d'études en cours-->
@@ -8,14 +8,15 @@
       <div class="w3-third w3-margin-bottom">
         <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
           <li class="w3-black w3-xlarge w3-padding-32">Information Client</li>
-          <li class="w3-padding-16">Prenom: <c:out value="${client1.firstname}"/></li>
-          <li class="w3-padding-16">Nom: <c:out value="${client1.lastname}"/></li>
-          <li class="w3-padding-16">Adresse: <c:out value="${client1.adress}"/></li>
-          <li class="w3-padding-16">Telephone: <c:out value="${client1.phoneNumber}"/></li>
-          <li class="w3-padding-16">Email: <c:out value="${client1.email}"/></li>
+          <li class="w3-padding-16">Prenom: <c:out value="${client.firstname}"/></li>
+          <li class="w3-padding-16">Nom: <c:out value="${client.lastname}"/></li>
+          <li class="w3-padding-16">Adresse: <c:out value="${client.adress}"/></li>
+          <li class="w3-padding-16">Telephone: <c:out value="${client.phoneNumber}"/></li>
+          <li class="w3-padding-16">Email: <c:out value="${client.email}"/></li>
           <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-teal w3-padding-large w3-hover-black">Modification?</button>
+            <button class="w3-button w3-teal w3-padding-large w3-hover-black" onclick="location='/TpFilRouge/creationClient'">Modification?</button>
           </li>
+          <li class="w3-padding-16">Création?: ${form.resultat}</li>
         </ul>
       </div>
       
@@ -29,23 +30,25 @@
           <li class="w3-padding-16">Mode de livraison</li>
           <li class="w3-padding-16"> Statut de livraison</li>
           <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-teal w3-padding-large w3-hover-black" onclick="location='creationCommande.jsp'">Ajouter une commande?</button>
+            <button class="w3-button w3-teal w3-padding-large w3-hover-black" onclick="location='/TpFilRouge/creationCommande'">Ajouter une commande?</button>
           </li>
+          <li class="w3-padding-16">Création?</li>
         </ul>
       </div>
       
      <div class="w3-third">
         <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
           <li class="w3-black w3-xlarge w3-padding-32">Commande 1</li>
-          <li class="w3-padding-16"><c:out value="${commande1.dateCommande}"/></li>
-          <li class="w3-padding-16"><c:out value="${commande1.montantCommande}"/></li>
-          <li class="w3-padding-16"><c:out value="${commande1.modedePaiementCommande}"/></li>
-          <li class="w3-padding-16"><c:out value="${commande1.statutPaiementCommande}"/></li>
-          <li class="w3-padding-16"><c:out value="${commande1.modeLivraisonCommande}"/></li>
-           <li class="w3-padding-16"><c:out value="${commande1.statutLivraisonCommande}"/></li>
+          <li class="w3-padding-16"><c:out value="${commande.dateCommande}"/></li>
+          <li class="w3-padding-16"><c:out value="${commande.montantCommande}"/></li>
+          <li class="w3-padding-16"><c:out value="${commande.modedePaiementCommande}"/></li>
+          <li class="w3-padding-16"><c:out value="${commande.statutPaiementCommande}"/></li>
+          <li class="w3-padding-16"><c:out value="${commande.modeLivraisonCommande}"/></li>
+           <li class="w3-padding-16"><c:out value="${commande.statutLivraisonCommande}"/></li>
           <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-teal w3-padding-large w3-hover-black">Modification</button>
+            <button class="w3-button w3-teal w3-padding-large w3-hover-black" onclick="location='/TpFilRouge/creationCommande'">Modification</button>
           </li>
+          <li class="w3-padding-16">${formCommande.resultat}</li>
         </ul>
       </div>
     </div>
@@ -135,4 +138,4 @@
     </form>
   </div>
 
-  <%@ include file="footer.jsp" %>
+  <%@ include file="include/footer.jsp" %>
