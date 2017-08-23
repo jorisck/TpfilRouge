@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet( "/Deconnexion" )
 public class Deconnexion extends HttpServlet {
     private static final long  serialVersionUID = 1L;
-    public static final String URL_REDIRECTION  = "/TpFilRouge/connexion";
+    public static final String URL_REDIRECTION  = "/connexion";
 
     public Deconnexion() {
         super();
@@ -28,7 +28,7 @@ public class Deconnexion extends HttpServlet {
         HttpSession session = request.getSession();
         session.invalidate();
 
-        response.sendRedirect( URL_REDIRECTION );
+        response.sendRedirect( request.getContextPath() + URL_REDIRECTION );
 
     }
 

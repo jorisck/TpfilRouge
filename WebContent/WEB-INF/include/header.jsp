@@ -13,7 +13,7 @@
 	<link rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<link type="text/css" rel="stylesheet" href="<c:url value="/inc/style.css"/>" />
+	<link type="text/css" rel="stylesheet" href="<c:url value="/include/inc/style.css"/>" />
 	
 	<style>
 	body,h1,h2,h3,h4,h5,h6 {
@@ -76,8 +76,6 @@
 	
 			<!-- Header -->
 			<header id="portfolio">
-			
-				<%@include file="variableURL.jsp"%>
 				
 				<a href="#"><img src="/w3images/avatar_g2.jpg"
 					style="width: 65px;"

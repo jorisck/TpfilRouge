@@ -67,7 +67,7 @@
   </div>
 
   <!-- Images of Me -->
-  <div class="w3-row-padding w3-padding-16" id="about">
+  <div class="w3-row-padding w3-padding-		 <c:import url="/inc/variableURL.jsp" />16" id="about">
     <div class="w3-col m6">
       <img src="/w3images/avatar_g.jpg" alt="Me" style="width:100%">
     </div>
