@@ -15,6 +15,15 @@
 	
 	<link type="text/css" rel="stylesheet" href="<c:url value="/include/inc/style.css"/>" />
 	
+	<!-- //for-mobile-apps -->
+	<!-- font-awesome icons -->
+	<link href="include/css/font-awesome.css" rel="stylesheet"> 
+	<!-- Custom Theme files -->
+	<link href="include/css/style2.css" rel="stylesheet" type="text/css" media="all"/>
+	<!-- //font-awesome icons -->
+	<!--Google Fonts-->
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+	
 	<style>
 	body,h1,h2,h3,h4,h5,h6 {
 		font-family: "Raleway", sans-serif
@@ -26,7 +35,7 @@
 
 	
 		<!-- Sidebar/menu -->
-		<nav class="w3-sidebar w3-collapse w3-white w3-animate-left"
+		<nav class="w3-sidebar w3-collapse w3-white "
 			style="z-index: 3; width: 300px;" id="mySidebar">
 			<br>
 			<div class="w3-container">
@@ -37,7 +46,7 @@
 					class="w3-round"><br>
 				<br>
 				<h4>
-					<b>TP file rouge</b>
+					<b>Recherche RT</b>
 				</h4>
 				<p class="w3-text-grey">${sessionScope.sessionUtilisateur.email}</p>
 			</div>
@@ -55,14 +64,6 @@
 					<a
 					href="<c:url value="/deconnexion"/>"
 					class="w3-bar-item w3-button w3-padding">Deconnexion</a>
-			</div>
-			<div class="w3-panel w3-large">
-				<i class="fa fa-facebook-official w3-hover-opacity"></i> <i
-					class="fa fa-instagram w3-hover-opacity"></i> <i
-					class="fa fa-snapchat w3-hover-opacity"></i> <i
-					class="fa fa-pinterest-p w3-hover-opacity"></i> <i
-					class="fa fa-twitter w3-hover-opacity"></i> <i
-					class="fa fa-linkedin w3-hover-opacity"></i>
 			</div>
 		</nav>
 	
@@ -83,14 +84,16 @@
 				<span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey"
 					onclick="w3_open()"><i class="fa fa-bars"></i></span>
 				<div class="w3-container">
-					<h3>
-						<b>TP Fil Rouge sur OpenClassRoom</b>
-					</h1>
+					<h2>
+						<b>Recherche RT</b>
+					</h2>
 					<div class="w3-section w3-bottombar w3-padding-16">
 						<span class="w3-margin-right">Menu:</span>
 						<a class="w3-button w3-black" href="<c:url value="/accueil"/>">Accueil</a>
 						<a class="w3-button w3-white w3-hide-small" href="<c:url value="/creationClient"/>">Créer un patient</a>
 					    <a class="w3-button w3-white w3-hide-small" href="<c:url value="/creationCommande"/>">Creer une commande</a>
+					    <a class="w3-button w3-white w3-hide-small" href="<c:url value="/listeClients"/>">Voir les clients existants</a>
+					    <a class="w3-button w3-white w3-hide-small" href="<c:url value="/listeCommandes"/>">Voir les commandes existantes</a>
 						
 					</div>
 				</div>
