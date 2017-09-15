@@ -39,4 +39,21 @@ public class MethodsInOneBox {
         }
     }
 
+    public void validationMontant( String montant ) throws Exception {
+        if ( montant != null ) {
+            if ( montant == "0" || montant.trim().length() < 0 ) {
+                throw new Exception( "Merci de saisir supérieur à 0" );
+            } else {
+                boolean montantIsInt = MethodsInOneBox.isInteger( montant );
+                if ( montantIsInt == false ) {
+                    throw new Exception( "Merci d'encoder des chiffres pour le montant" );
+                }
+            }
+
+        } else {
+            throw new Exception( "Merci de saisir un montant" );
+        }
+
+    }
+
 }

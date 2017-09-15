@@ -33,6 +33,8 @@ public class FormClient {
 
     public Client creerClient( HttpServletRequest request ) {
 
+        Client client = new Client();
+
         String nom = MethodsInOneBox.getValeurChamp( request, CHAMP_NOM );
         String prenom = MethodsInOneBox.getValeurChamp( request, CHAMP_PRENOM );
         String adresse = MethodsInOneBox.getValeurChamp( request, CHAMP_ADRESSE );
@@ -40,8 +42,6 @@ public class FormClient {
         String email = MethodsInOneBox.getValeurChamp( request, CHAMP_EMAIL );
 
         int phoneNumber = 0;
-
-        Client client = new Client();
 
         try {
             validationNom( nom );

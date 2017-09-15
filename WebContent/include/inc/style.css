@@ -9,6 +9,7 @@ fieldset {
     padding: 10px;
     border: 1px #0568CD solid;
     margin: 10px;
+    
 }
 
 legend {
@@ -20,6 +21,7 @@ form label {
     float: left;
     width: 200px;
     margin: 3px 0px 0px 0px;
+    color:  #FFFFFF;
 }
 
 form input {
@@ -56,3 +58,4 @@ form .succes {
     font-style: italic;
     color: #E8A22B;
 }
+

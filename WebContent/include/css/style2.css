@@ -29,10 +29,12 @@ img{max-width:100%;}
 /*end reset*/
 body{
     margin: 0;
-    
+    background: url("../images/photo_bg.jpg") no-repeat center center fixed;
     background-attachment:fixed;
 	background-size:cover;
     font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+   
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -240,3 +242,4 @@ h1 {
 	
 }
 /*-- //responsive --*/
+
